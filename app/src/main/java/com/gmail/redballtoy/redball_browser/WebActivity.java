@@ -1,6 +1,7 @@
 package com.gmail.redballtoy.redball_browser;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,10 +11,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
-public class web extends AppCompatActivity {
+public class WebActivity extends AppCompatActivity {
 
     WebView showWeb;
     public String TAG = "MyLog";
+    public final String SAVED_URL = "saved URL";
+    private boolean saveUrl = false;
+    SharedPreferences sPref;
+    Uri data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +32,44 @@ public class web extends AppCompatActivity {
         showWeb.setWebViewClient(new MyWebClient());
         //включить поддержку JavaScript
         showWeb.getSettings().setJavaScriptEnabled(true);
-        Uri data = getIntent().getData();
-        Log.d(TAG, "Web class " + data.toString());
-        showWeb.loadUrl(data.toString());
+        Log.d(TAG, "savedUrl=" + saveUrl);
+        if (restoreUrl().equals("")) {//страница не была сохранена
+            data = getIntent().getData();
+            showWeb.loadUrl(data.toString());
+            Log.d(TAG, "Первоначальная загрузка");
+        } else {
+            showWeb.loadUrl(restoreUrl());
+            Log.d(TAG, "Восстановление страницы" + restoreUrl());
+        }
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        saveUrl();
+
+    }
+
+
+    private void saveUrl() {
+        sPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+        //ed.putString(SAVED_URL, showWeb.getOriginalUrl());
+        ed.putString(SAVED_URL, showWeb.getUrl());
+        ed.commit();
+        //URL сохранен
+        Log.d(TAG, "URL сохранен=" + SAVED_URL);
+    }
+
+    private String restoreUrl() {
+        sPref= getPreferences(MODE_PRIVATE);
+        return sPref.getString(SAVED_URL, "");
+    }
+    public void delUrl() {
+        SharedPreferences.Editor ed = sPref.edit();
+        ed.putString(SAVED_URL, "");
+        ed.commit();
     }
 
     @Override

@@ -22,8 +22,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.gmail.redballtoy.redball_browser.web"
-            android:icon="@drawable/my_logo_128_128"
+            android:name="com.gmail.redballtoy.redball_browser.WebActivity"
+            android:icon="@drawable/browser"
             android:label="@string/app_name"
             android:parentActivityName="com.gmail.redballtoy.redball_browser.MainActivity">
             <intent-filter>

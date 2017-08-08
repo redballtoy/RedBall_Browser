@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.gmail.redballtoy.redball_browser.web">
+    tools:context="com.gmail.redballtoy.redball_browser.WebActivity">
     <include layout="@layout/mytoolbar" />
 
     <LinearLayout
