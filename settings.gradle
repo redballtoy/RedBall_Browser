@@ -1,1 +1,2 @@
-include ':app'
+include ':RedBallBrowser'
+include ':RedBall_BrowserApp'

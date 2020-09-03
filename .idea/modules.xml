@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Projects-RedBall_Browser.iml" filepath="$PROJECT_DIR$/.idea/modules/Projects-RedBall_Browser.iml" group="RedBall_Browser" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RedBallBrowser/RedBallBrowser.iml" filepath="$PROJECT_DIR$/.idea/modules/RedBallBrowser/RedBallBrowser.iml" group="RedBall_Browser/RedBallBrowser" />
       <module fileurl="file://$PROJECT_DIR$/RedBall_Browser.iml" filepath="$PROJECT_DIR$/RedBall_Browser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RedBall_BrowserApp/RedBall_BrowserApp.iml" filepath="$PROJECT_DIR$/.idea/modules/RedBall_BrowserApp/RedBall_BrowserApp.iml" group="RedBall_Browser/RedBall_BrowserApp" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
